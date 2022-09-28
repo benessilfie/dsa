@@ -9,7 +9,7 @@
 - Be able to define "time complexity" and "space complexity"
 - How to evaluate the time complexity and space complexity of different algorithms using Big O Notation
 
-### What is Big O Notation and why does it matter?
+## What is Big O Notation and why does it matter?
 
 Big O is like a system of measurement for how fast an algorithm is. It's how we compare the efficiency of different algorithms. Basically It's a way of generalizing code to compare its performance to other pieces of code.
 
@@ -25,7 +25,7 @@ So yes it matters that your code works, but it also matters how fast it works or
 
 So now, how exactly do we measure the efficiency of our code? How do we know that one particular code is better or more efficient than another? We use `Big O Notation`.
 
-### Timing our code
+## Timing our code
 
 Suppose we want to write a function that calculates the sum of all numbers from 1 up to (and including) some number n, (could be 6, could be 258, we don't know so lets say n).
 
@@ -103,7 +103,7 @@ So if we are not using time, what do we use?
 
 How about counting the number of simple operations the computer has to perform?
 
-### Counting Operations
+## Counting Operations
 
 Rather than counting the exact seconds that it takes for a code to run which can change so much, we can count the number of simple operations the computer has to perform because that remains constant no matter that computer we are using.
 
@@ -120,7 +120,7 @@ So we can say that the number of operations for first solution is more than the 
 
 So now that we haven gone through the timing approach and the counting approach, we can say that the second solution is better than the first. But what is the Big O Notation of each solution?
 
-### Big O Notation
+## Big O Notation
 
 Big O Notation is a way to formalize fuzzy counting. It allows us to talk formally about how the runtime of an algorithm grows as the inputs grow.
 
@@ -136,7 +136,7 @@ We say that an algorithm is `O(f(n))` if the number of simple operations the com
 
 - It could be linear `(f(n) = n)` which means that as n grows, the time is takes to perform the number of operations or the runtime time grows as well (linearly).
 
-- It could be quadratic `(f(n) = n**2)` which means that as n grows, the runtime time squares related to the square of n. The number of operations grows quadratically.
+- It could be quadratic `(f(n) = n2)` which means that as n grows, the runtime time squares related to the square of n. The number of operations grows quadratically.
 
 - It could be constant `(f(n) = 1)` which means that as n grows, the number of operations stays the same which we simplify down to one.
 
@@ -145,3 +145,63 @@ We say that an algorithm is `O(f(n))` if the number of simple operations the com
 One thing to note is that when we talk about Big O , we are talking about the worst case scenario. We are talking about the upper bound for runtime.
 
 So we can say that the first solution is `O(n)` and the second solution is `O(1)`.
+
+An `O(n2)` is and `O(n)` operation inside of an an `O(n)` operation. e.g.
+
+```js
+function printAllPairs(n) {
+  for (var i = 0; i < n; i++) {
+    for (var j = 0; j < n; j++) {
+      console.log(i, j);
+  }
+}
+```
+
+## Big O Shorthands
+
+- Arithmetic operations are constant.
+- Variable assignments are also constant.
+- Accessing elements in an array (by index) or object (by key) is constant.
+- In a loop, the complexity is the length of the loop times the complexity of whatever happens inside of the loop.
+
+## Space Complexity
+
+Earlier in the notes when talking about why efficient code matters, I gave an example on how writing efficient code can save us money and how inefficient code might take up too much resources (memory) and crush our servers. So far we have been talking about time complexity, but there is also space complexity.
+
+Space complexity is just like time complexity, but we are concerned with space (auxiliary space) instead of time. It's basically a measure of how much additional memory we need to allocate in order to run the code in our algorithm.
+
+We can use Big O notation to analyze space complexity as well. We can use it to analyze the amount of memory that an algorithm takes up.
+
+- Most primitives (booleans, numbers, undefined, null) are constant space. It doesn't matter how many of them we have, they take up the same amount of space.
+
+- Strings require `O(n)` space (where n is the string length).
+
+- Reference types are generally `O(n)`, where n is the length (for arrays) or the number of keys (for objects).
+
+For example:
+
+```js
+function sum(arr) {
+  let total = 0;
+  for (let i = 0; i < arr.length; i++) {
+    total += arr[i];
+  }
+  return total;
+}
+```
+
+In this example, the space complexity is `O(1)` because we are only allocating space for the total variable.
+
+Example 2:
+
+```js
+function double(arr) {
+  let newArr = [];
+  for (let i = 0; i < arr.length; i++) {
+    newArr.push(2 * arr[i]);
+  }
+  return newArr;
+}
+```
+
+In this example, the space complexity is `O(n)` because we are allocating space for the newArr variable and the space is proportional to the size of the input array.
