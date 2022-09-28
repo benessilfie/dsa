@@ -205,3 +205,41 @@ function double(arr) {
 ```
 
 In this example, the space complexity is `O(n)` because we are allocating space for the newArr variable and the space is proportional to the size of the input array.
+
+## Logarithms
+
+So far we have been talking about some of the most common complexities `O(1)`, `O(n)`, and `O(n^2)` but there are a few more that we should talk about.
+
+Sometimes big O expressions involve more complex mathematical expressions and one that appears a lot is logarithms.
+
+What is a logarithm?
+
+Logarithms are the inverse of exponentiation. That means `log2(8) = 3` because `2^3 = 8`. In plain words we are saying that log base 2 of 8 is 3. What we are saying is 2 to what power is 8? and in our case the answer is 3.
+
+The binary logarithm of a number roughly measures the number of times you can divide that number by 2 before you get a value that's less than or equal to one.
+
+So if we have a number 8, we can divide it by 2, 3 times before we get a value that's less than or equal to one.
+
+```js
+8 / 2 = 4
+4 / 2 = 2
+2 / 2 = 1
+```
+
+So we can say that the binary logarithm of 8 is 3.
+
+Why is this important?
+
+Certain searching algorithms have logarithmic time complexity. Binary search is a famous example of a logarithmic time complexity algorithm.
+
+Also efficient sorting algorithms involve logarithms. Merge sort and quick sort have logarithmic time complexity.
+
+Recursion sometimes involves logarithmic space complexity.
+
+## Recap
+
+- To analyze the performance of an algorithm, we use Big O Notation.
+- Big O Notation can give us a high level understanding of the time or space complexity of an algorithm.
+- Big O Notation doesn't care about precision, only about general trends (linear? quadratic? constant?).
+- The time or space complexity (as measured by Big O) depends only on the algorithm, not the hardware used to run the algorithm.
+- Big O Notation is everywhere in Computer Science!
