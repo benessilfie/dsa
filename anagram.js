@@ -20,5 +20,7 @@ function anagram(str1, str2) {
   return true;
 }
 
+
+console.log(anagram("aaz", "zza"));
 console.log(anagram("anagram", "nagaram"));
 console.log(anagram("rat", "car"));
